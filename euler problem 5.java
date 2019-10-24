@@ -1,22 +1,54 @@
-public class Program
-{
-    public static void main(String[] args) {
-        System.out.println(findMult(20));
-    }
-    
-    public static boolean isMult(int num) {
-        for (int i = 11; i < 20; i++) {
-            if (num % i != 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-    
-    public static int findMult(int num) {
-        while (!isMult(num)) {
-            num++;
-        }
-        return num;
-    }
-}
+class GFG{ 
+
+  
+
+static long gcd(long a, long b) 
+
+{ 
+
+   if(a%b != 0)  
+
+      return gcd(b,a%b); 
+
+   else 
+
+      return b; 
+
+} 
+
+  
+
+ 
+
+static long lcm(long n) 
+
+{ 
+
+    long ans = 1;     
+
+    for (long i = 1; i <= n; i++) 
+
+        ans = (ans * i)/(gcd(ans, i)); 
+
+    return ans; 
+
+} 
+
+   
+
+ 
+
+public static void main(String []args)  
+
+{ 
+
+    long n = 20; 
+
+    System.out.println(lcm(n)); 
+
+  
+
+} 
+
+} 
+
