@@ -1,54 +1,62 @@
-class GFG{ 
-
-  
-
-static long gcd(long a, long b) 
-
+public class euler_Problem_5 
 { 
+	
 
-   if(a%b != 0)  
 
-      return gcd(b,a%b); 
 
-   else 
 
-      return b; 
 
-} 
+public static void main(String[] args) 
+{		
 
-  
 
- 
 
-static long lcm(long n) 
+int sum = 1, pN = 0;	
+	
 
-{ 
 
-    long ans = 1;     
+for (int i = 1; i <= 20; i++)
+	{			pN = Prime(i);		
+	
 
-    for (long i = 1; i <= n; i++) 
+if (pN > 0)	
+{				
+sum *= pN;			
+}		
+	
 
-        ans = (ans * i)/(gcd(ans, i)); 
 
-    return ans; 
+while ( pN < 0 && !(sum%i == 0) )	
+{				
+	
 
-} 
+if ((sum*2)%i == 0)		
+{					sum *= 2;				}			
+	
 
-   
 
- 
+else if ((sum*3)%i == 0)
+	{					sum *= 3;				}			
+}		
+}		
 
-public static void main(String []args)  
 
-{ 
+System.out.println("Smallest Divisible Number: " + sum);	
+}		
 
-    long n = 20; 
 
-    System.out.println(lcm(n)); 
 
-  
+private static int Prime(int num)	
+{	
 
-} 
+   	int j;	
+	    if (num == 2 || num == 3)
+	
+   {return num; }	
+	
+    for (j = 0; (j <= num/2) && ( !((num % (j+2)) == 0 )) ; j++);		
 
-} 
+    return (j > num/2) ? num:-1;	} 
+}
 
+	
