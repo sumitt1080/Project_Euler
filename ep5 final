@@ -1,0 +1,87 @@
+import java.util.*;
+import com.google.common.math.IntMath;
+public class euler_problem_5
+{
+    List<Integer> GP=new ArrayList<Integer>();
+    List<Integer> F=new ArrayList<Integer>();
+
+public static int main(String[] args)
+{
+    Scanner k=new Scanner (System.in);
+    int n;
+    System.out.println("Enter the upper limit: ");
+    n=k.nextInt();
+    List<Integer> primes=new ArrayList<Integer>();
+    List<Integer> primes=GP(n);
+   List<Integer> exponents(primes.size(),0);
+    List<Integer> F(int,const List<Integer> &);
+    for(int i=0;i<=n;i++)
+    {
+        List<Integer> factors=F(i,primes);
+        for(int i=0;i<exponents.size();i++)
+        {
+            if(factors[i]>exponents[i])
+            exponents[i]=factors[i];
+        }
+    }
+    int p=1;
+    for(int i=0;i<primes.size();i++)
+    {
+        for(int j=0;j<exponents[i];j++)
+        {
+            p*=primes[i];
+        }
+    }
+    System.out.println("Smallest number is: "+p);
+    
+    }
+    
+List<Integer> GP(int max)
+{
+    boolean[] isPrime=new boolean[max+1];
+    for(int i=0;i<=max;i++)
+       isPrime[i]=true;
+    isPrime[0]=isPrime[1]=false;
+    int p=2;
+    while(p<=max)  
+    {
+        if(isPrime[p])
+        {
+            for(int j=2;(p*j)<=max;j++)
+               isPrime[p*j]=false;
+            
+        }    
+            p++;
+            
+    }
+    List<Integer> primes=new ArrayList<Integer>();
+    for (int i=0;i<=max;i++)
+      {
+          if(isPrime[i])
+           primes.add(i);
+      } 
+    delete []isPrime;
+    return primes;    
+    
+    }
+    
+List<Integer> F(int n,const List<Integer> &primes)
+{
+    List<Integer> exponents(primes.size(),0);
+    while(n>1)
+    {
+        for(int i=0;i<primes.size();i++)
+        {
+            if(n%primes[i]==0)
+            {
+                exponents[i]++;
+                n=n/primes[i];
+                break;
+            }
+        }
+    }
+    
+    return exponents;
+}
+
+}
