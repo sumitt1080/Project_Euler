@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int find_prime (int *numArray, int maxNum)
+{
+int factor = 2;
+numArray[1] = 0;
+while ((factor * factor) < maxNum)
+{
+for (int i = 2; i < maxNum; i++)
+{
+    if (numArray[i] != 0)
+    {
+      if (numArray[i] != factor && (numArray[i]% factor) == 0)
+{
+numArray[i] = 0; 
+    }
+}}
+++factor;
+}}
+
+int main()
+{
+    int maxNum = 0;
+int result = 1;
+int num = 0;
+
+cout <<"enter max number: ";
+cin >> maxNum;
+
+int *myArray = new int [maxNum];
+for (int i = 0; i < maxNum; i++)
+{
+myArray[i]= i;
+}
+find_prime(myArray, maxNum);
+
+for (int i = 2; i < maxNum; i ++)
+{
+
+if ((myArray [i]) != 0)
+{
+num = myArray[i];
+
+while ((num * (myArray[i])) < maxNum)
+{
+num = num * (myArray[i]);
+}
+result = num * result;
+}}
+cout << "smallest positive number that is evenly divisible by all of the numbers from 1 to " << maxNum
+<< " is: " << result <<endl;
+delete []myArray;
+
+}
+    
+
+
